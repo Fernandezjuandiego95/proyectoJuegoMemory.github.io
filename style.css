@@ -1,0 +1,333 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(237,55,105);
+    background: radial-gradient(circle, rgba(237,55,105,1) 0%, rgba(129,2,255,1) 100%);
+}
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+    font-family: lato,Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+main{
+    width: 780px;
+    height: 450px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+}
+
+.section1{
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 0 10px 10px 10px;
+    border-radius: 8px;
+    width: 58%;
+    height: 100%;
+    border-left: solid 1px #FFFFFF;
+    border-top: solid 1px #FFFFFF;
+    border-bottom-right-radius: 0px;
+}
+
+.btn{
+    height: 100px;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 4px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: none;
+
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(241, 241, 241);
+}
+
+.section2{
+    display: flex;
+    background-color: rgb(255, 255, 255, 0.4);
+    width: 35%;
+    height: 400px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    border-right: solid 1px #FFFFFF;
+ 
+    margin-top: 50px;
+}
+
+.estadisticas{
+    border: solid 1px #FFFFFF;
+    height: 100px;
+    width: 230px;
+    border-radius: 8px;
+    padding: 30px 10px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #000000;
+    box-sizing: border-box;
+    font-family: lato, Arial, Helvetica, sans-serif;
+}
+
+img{
+    width: 80%;
+}
+
+#aciertos{
+    background-image: url(./assets/img/verificacion.png);
+    background-size: 50px;
+    background-position-x: 150px;
+    background-position-y: 15px;
+    background-repeat: no-repeat;
+}
+
+#tiempo{
+    background-image: url(./assets/img/reloj.png);
+    background-size: 80px;
+    background-position-x: 110px;
+    background-repeat: no-repeat;
+}
+
+#movimientos{
+    background-image: url(./assets/img/movimiento.png);
+    background-size: 40px;
+    background-position-x: 165px;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+}
+
+.figura{
+    width: 8%;
+    position: absolute;
+    margin-left: 6%;
+    margin-top: -14.7rem;
+
+}
+
+p{
+    margin-top: 50px;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: lato, Arial, Helvetica, sans-serif;
+}
+
+/* BOTON efecto*/
+
+/* From uiverse.io */
+.button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    margin-left: 40%;
+}
+   
+.button.learn-more {
+width: 12rem;
+height: auto;
+}
+
+.button.learn-more .circle {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: relative;
+display: block;
+margin: 0;
+width: 3rem;
+height: 3rem;
+background: #282936;
+border-radius: 1.625rem;
+}
+
+.button.learn-more .circle .icon {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto;
+background: #fff;
+}
+
+.button.learn-more .circle .icon.arrow {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+left: 0.625rem;
+width: 1.125rem;
+height: 0.125rem;
+background: none;
+}
+
+.button.learn-more .circle .icon.arrow::before {
+position: absolute;
+content: "";
+top: -0.29rem;
+right: 0.0625rem;
+width: 0.625rem;
+height: 0.625rem;
+border-top: 0.125rem solid #fff;
+border-right: 0.125rem solid #fff;
+transform: rotate(45deg);
+}
+
+.button.learn-more .button-text {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 0.75rem 0;
+margin: 0 0 0 1.85rem;
+color: #282936;
+font-weight: 700;
+line-height: 1.6;
+text-align: center;
+text-transform: uppercase;
+}
+
+.button:hover .circle {
+width: 100%;
+}
+
+.button:hover .circle .icon.arrow {
+background: #fff;
+transform: translate(1rem, 0);
+}
+
+.button:hover .button-text {
+color: #fff;
+}
+
+
+
+/**Aplicando los media quiery*/
+
+@media all and (max-width: 850px) {
+    
+    main{
+        width: 550px;
+        height: 580px;
+        flex-direction: column;
+    }
+    .section1{
+        width: 82%;
+        height: 450px;
+        border-bottom-left-radius: 0px;
+    }
+    
+    .section2{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 0px;
+        border-radius: 8px;
+        border-right: none;
+        border-bottom: solid 1px #FFFFFF;
+    }
+
+    .estadisticas{
+        height: 100px;
+        width: 165px;
+        border-radius: 4px;
+        padding: 5px 10px;
+        margin-left: 0px;
+    }
+    
+    #aciertos{
+        background-size: 40px;
+        background-position-x: 55px;
+        background-position-y: 45px;
+    }
+    
+    #tiempo{
+        background-size: 70px;
+        background-position-x: 0px;
+        background-position-y: 10px;
+    }
+    
+    #movimientos{
+        background-size: 40px;
+        background-position-x: 65px;
+        background-position-y: 40px;
+    }
+    
+    .figura{
+        margin-top: 0rem;
+        visibility: hidden;
+    }
+}
+
+
+
+@media all and (max-width: 600px) {
+    
+    main{
+        width: 95%;
+        height: 490px;
+    }
+  
+    .btn{
+        height: 80px;
+        width: 80px;
+    }
+    .estadisticas{
+        height: 80px;
+        width: 130px;
+        font-size: 18px;
+    }
+    
+    #aciertos{
+        background-size: 40px;
+        background-position-x: 45px;
+        background-position-y: 30px;
+    }
+    
+    #movimientos{
+        background-size: 35px;
+        background-position-x: 45px;
+        background-position-y: 30px;
+    }
+    
+    #tiempo{
+        background-size: 65px;
+        background-position-x: 73px;
+        background-position-y: 0px;
+    }
+    .tt{
+        width: 150px;
+        padding: 25px 1px;
+    }
+
+    .button {
+        margin-left: 30%;
+    }
+}
+
+@media all and (max-width: 465px) {
+    
+    main{
+        width: 95%;
+        height: 482px;
+    }
+    .section1{
+        width: 95%;
+    }
+ 
+
+
+}
