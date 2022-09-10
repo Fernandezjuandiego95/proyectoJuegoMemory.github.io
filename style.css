@@ -327,7 +327,72 @@ color: #fff;
     .section1{
         width: 95%;
     }
- 
 
+}
 
+@media all and (max-width: 400px) {
+    
+    .btn{
+        height: 75px;
+        width: 75px;
+    }
+    main{
+        height: 460px;
+    }
+
+    .estadisticas{
+        height: 80px;
+        width: 130px;
+        font-size: 16px;
+    }
+
+    #tiempo{
+        background-size: 55px;
+        background-position-x: 65px;
+        background-position-y: 3px;
+    }
+
+}
+
+@media all and (max-width: 386px) {
+    
+    .btn{
+        height: 70px;
+        width: 70px;
+    }
+    main{
+        height: 450px;
+    }
+
+    #tiempo{
+        background-size: 45px;
+        background-position-x: 58px;
+        background-position-y: 8px;
+    }
+
+    .estadisticas{
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width: 357px) {
+    
+    .btn{
+        height: 60px;
+        width: 60px;
+    }
+    main{
+        height: 400px;
+    }
+}
+
+@media all and (max-width: 310px) {
+    
+    .btn{
+        height: 50px;
+        width: 50px;
+    }
+    main{
+        height: 370px;
+    }
 }
