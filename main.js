@@ -7,7 +7,7 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 45;
+let timer = 50;
 let tiempoRegresivoId;
 let timerInicial = timer;
 
@@ -15,6 +15,11 @@ let timerInicial = timer;
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAcieros = document.getElementById('aciertos');
 let mostrarTiempo = document.getElementById('tiempo');
+const modal = document.querySelector('.modal');
+const cerrarmodal = document.querySelector('.modal__close');
+const modalperder = document.querySelector('.modalperder');
+const cerrarmodalperder = document.querySelector('.modal__close__perder');
+
 
 //Audios
 let audioClick = new Audio('./assets/sonidos/click.wav');
@@ -53,38 +58,31 @@ let partida7 = [49,49,50,50,51,51,52,52,53,53,54,54,55,55,56,56];
     switch (azar) {
         case 0:
             diego = partida1;
-            console.log(diego);
         break;
         case 1:
             diego = partida2;
-            console.log(diego);
         break;
         case 2:
             diego = partida3;
-            console.log(diego);
         break;
         case 3:
             diego = partida4;
-            console.log(diego);
         break;
         case 4:
             diego = partida5;
-            console.log(diego);
         break;
         case 5:
             diego = partida6;
-            console.log(diego);
         break;
         case 6:
             diego = partida7;
-            console.log(diego);
         break;
         default:
              alert("Error");
         break;
       }
 
- console.log(azar);
+
 
 function contarTiempo(){
  tiempoRegresivoId = setInterval(()=>{
@@ -94,6 +92,15 @@ function contarTiempo(){
           clearInterval(tiempoRegresivoId);
           bloqueartargetas(diego);
           audioPerdiste.play();
+
+        //mostar ventana modal 
+        modalperder.classList.add('modal--show');
+
+        cerrarmodalperder.addEventListener('click', (j)=>{
+        j.preventDefault();
+        modalperder.classList.remove('modal--show');
+        });
+          
        }
    },1000);
 }
@@ -141,8 +148,9 @@ function destapar(id){
         mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
 
     }
-    
-    if(primerResultado == segundoResultado || segundoResultado == primerResultado){
+
+    setTimeout(()=>{
+    if(primerResultado == segundoResultado){
 
         //Encerrar contador targetas destapadas
         tarjetadestapada = 0;
@@ -153,18 +161,24 @@ function destapar(id){
        mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
        audioAcierto.play();
        
-       if(aciertos == 8){
+       if(aciertos == 16){
            audioGanaste.play();
            clearInterval(tiempoRegresivoId);
            mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
            mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timerInicial - timer}`
            mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
+           
+           //mostar ventana modal 
+            modal.classList.add('modal--show');
+        
+           cerrarmodal.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
        }
     }
     else{
         //Mostar valores momentaneamente y volver a tapar
-        
-        setTimeout(()=>{
             tarjeta1.innerHTML = '';
             tarjeta2.innerHTML = '';
 
@@ -172,6 +186,8 @@ function destapar(id){
             tarjeta2.disabled = false;
 
             tarjetadestapada = 0;
-        },800);
-    }
+        
+    }},1100);
 }
+
+
