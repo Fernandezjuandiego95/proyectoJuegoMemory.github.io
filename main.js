@@ -1,15 +1,3 @@
-//Inicializacion de variables
-let tarjetadestapada = 0;
-let tarjeta1 = null;
-let tarjeta2 = null;
-let primerResultado = null;
-let segundoResultado = null;
-let movimientos = 0;
-let aciertos = 0;
-let temporizador = false;
-let timer = 50;
-let tiempoRegresivoId;
-let timerInicial = timer;
 
 //Apuntando al documento HTML
 let mostrarMovimientos = document.getElementById('movimientos');
@@ -27,6 +15,22 @@ let audioAcierto = new Audio('./assets/sonidos/bien.wav');
 let audioPerdiste = new Audio('./assets/sonidos/perder.wav');
 let audioGanaste = new Audio('./assets/sonidos/ganar.wav');
 let audioMal = new Audio('./assets/sonidos/error.wav');
+
+
+
+
+//Inicializacion de variables
+let tarjetadestapada = 0;
+let tarjeta1 = null;
+let tarjeta2 = null;
+let primerResultado = null;
+let segundoResultado = null;
+let movimientos = 0;
+let aciertos = 0;
+let temporizador = false;
+let timer = 50;
+let tiempoRegresivoId;
+let timerInicial = timer;
 
 
 
@@ -82,7 +86,8 @@ let partida7 = [49,49,50,50,51,51,52,52,53,53,54,54,55,55,56,56];
         break;
       }
 
-
+console.log(azar);
+console.log(diego);
 
 function contarTiempo(){
  tiempoRegresivoId = setInterval(()=>{
@@ -133,6 +138,7 @@ function destapar(id){
 
       //desHabilitar el primer boton
       tarjeta1.disabled = true;
+      console.log(primerResultado);
     }
     else if(tarjetadestapada == 2){
         audioMal.play();
@@ -146,48 +152,57 @@ function destapar(id){
         //Incrementar movimientos
         movimientos++;
         mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
+        console.log(segundoResultado);
 
+        //llamar la funcion tapartarjetas
+        tapartarjetas();
     }
+   
+  
+}
 
-    setTimeout(()=>{
-    if(primerResultado == segundoResultado){
 
-        //Encerrar contador targetas destapadas
-        tarjetadestapada = 0;
-
-        //Aumentar aciertos
-       aciertos++;
+function tapartarjetas(){
+    
+    if(primerResultado != segundoResultado){
+     setTimeout(() =>{
       
-       mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
-       audioAcierto.play();
-       
-       if(aciertos == 16){
-           audioGanaste.play();
-           clearInterval(tiempoRegresivoId);
-           mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
-           mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timerInicial - timer}`
-           mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
-           
-           //mostar ventana modal 
-            modal.classList.add('modal--show');
-        
-           cerrarmodal.addEventListener('click', (e)=>{
-            e.preventDefault();
-            modal.classList.remove('modal--show');
-        });
-       }
-    }
-    else{
-        //Mostar valores momentaneamente y volver a tapar
             tarjeta1.innerHTML = '';
             tarjeta2.innerHTML = '';
 
             tarjeta1.disabled = false;
             tarjeta2.disabled = false;
 
-            tarjetadestapada = 0;
-        
-    }},1100);
-}
+            tarjetadestapada = 0; 
+        },800);
+    }
+    else{
+               //Encerrar contador targetas destapadas
+               tarjetadestapada = 0;
 
+               //Aumentar aciertos
+              aciertos++;
+             
+              mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
+              audioAcierto.play();
+
+              if(aciertos == 8){
+                audioGanaste.play();
+                clearInterval(tiempoRegresivoId);
+                mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
+                mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timerInicial - timer}`
+                mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
+               
+                    //mostar ventana modal 
+                    modal.classList.add('modal--show');
+                
+                    cerrarmodal.addEventListener('click', (e)=>{
+                    e.preventDefault();
+                    modal.classList.remove('modal--show');
+                    }); 
+            }  
+    }
+   
+   
+}
 
