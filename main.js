@@ -31,12 +31,12 @@ let temporizador = false;
 let timer = 50;
 let tiempoRegresivoId;
 let timerInicial = timer;
-
+//let dato = 0;
 
 
 //Generar cuadros aleatorios
 let partida1 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-    partida1 = partida1.sort(()=>{return  Math.random()-0.5});
+   partida1 = partida1.sort(()=>{return  Math.random()-0.5});
 
 let partida2 = [9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16];
     partida2 = partida2.sort(()=>{return  Math.random()-0.5});
@@ -56,8 +56,26 @@ let partida6 = [41,41,42,42,43,43,44,44,45,45,46,46,47,47,48,48];
 let partida7 = [49,49,50,50,51,51,52,52,53,53,54,54,55,55,56,56];
     partida7 = partida7.sort(()=>{return  Math.random()-0.5});
 
-   const azar = Math.floor(Math.random() * 7);
-    let diego = [];
+let partida8 = [57,57,58,58,59,59,60,60,61,61,62,62,63,63,64,64];
+    partida8 = partida8.sort(()=>{return  Math.random()-0.5});
+
+let partida9 = [65,65,66,66,67,67,68,68,69,69,70,70,71,71,72,72];
+    partida9 = partida9.sort(()=>{return  Math.random()-0.5});
+
+let partida10 = [73,73,74,74,75,75,76,76,77,77,78,78,79,79,80,80];
+    partida10 = partida10.sort(()=>{return  Math.random()-0.5});
+
+let partida11 = [81,81,82,82,83,83,84,84,85,85,86,86,87,87,88,88,];
+    partida11 = partida11.sort(()=>{return  Math.random()-0.5});
+
+let partida12 = [89,89,90,90,91,91,92,92,93,93,94,94,95,95,96,96];
+    partida12 = partida12.sort(()=>{return  Math.random()-0.5});
+/**----------------------------------------------------------------------------------------------*/   
+  
+const azar = Math.floor(Math.random() * 12);
+  
+   let diego = [];
+      
 
     switch (azar) {
         case 0:
@@ -80,6 +98,21 @@ let partida7 = [49,49,50,50,51,51,52,52,53,53,54,54,55,55,56,56];
         break;
         case 6:
             diego = partida7;
+        break;
+        case 7:
+            diego = partida8;
+        break;
+        case 8:
+            diego = partida9;
+        break;
+        case 9:
+            diego = partida10;
+        break;
+        case 10:
+            diego = partida11;
+        break;
+        case 11:
+            diego = partida12;
         break;
         default:
              alert("Error");
@@ -138,7 +171,7 @@ function destapar(id){
 
       //desHabilitar el primer boton
       tarjeta1.disabled = true;
-      console.log(primerResultado);
+
     }
     else if(tarjetadestapada == 2){
         audioMal.play();
@@ -152,7 +185,6 @@ function destapar(id){
         //Incrementar movimientos
         movimientos++;
         mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
-        console.log(segundoResultado);
 
         //llamar la funcion tapartarjetas
         tapartarjetas();
@@ -190,7 +222,7 @@ function tapartarjetas(){
                 audioGanaste.play();
                 clearInterval(tiempoRegresivoId);
                 mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
-                mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timerInicial - timer}`
+                mostrarTiempo.innerHTML = `Demora: &nbsp0:${timerInicial - timer}s`
                 mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
                
                     //mostar ventana modal 
@@ -205,4 +237,6 @@ function tapartarjetas(){
    
    
 }
+
+
 
