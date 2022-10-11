@@ -74,45 +74,45 @@ let partida12 = [89,89,90,90,91,91,92,92,93,93,94,94,95,95,96,96];
   
 const azar = Math.floor(Math.random() * 12);
   
-   let diego = [];
+   let mostrar = [];
       
 
     switch (azar) {
         case 0:
-            diego = partida1;
+            mostrar = partida1;
         break;
         case 1:
-            diego = partida2;
+            mostrar = partida2;
         break;
         case 2:
-            diego = partida3;
+            mostrar = partida3;
         break;
         case 3:
-            diego = partida4;
+            mostrar = partida4;
         break;
         case 4:
-            diego = partida5;
+            mostrar = partida5;
         break;
         case 5:
-            diego = partida6;
+            mostrar = partida6;
         break;
         case 6:
-            diego = partida7;
+            mostrar = partida7;
         break;
         case 7:
-            diego = partida8;
+            mostrar = partida8;
         break;
         case 8:
-            diego = partida9;
+            mostrar = partida9;
         break;
         case 9:
-            diego = partida10;
+            mostrar = partida10;
         break;
         case 10:
-            diego = partida11;
+            mostrar = partida11;
         break;
         case 11:
-            diego = partida12;
+            mostrar = partida12;
         break;
         default:
              alert("Error");
@@ -120,7 +120,7 @@ const azar = Math.floor(Math.random() * 12);
       }
 
 console.log(azar);
-console.log(diego);
+console.log(mostrar);
 
 function contarTiempo(){
  tiempoRegresivoId = setInterval(()=>{
@@ -128,7 +128,7 @@ function contarTiempo(){
        mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timer}`;
        if(timer <= 0){
           clearInterval(tiempoRegresivoId);
-          bloqueartargetas(diego);
+          bloqueartargetas(mostrar);
           audioPerdiste.play();
 
         //mostar ventana modal 
@@ -146,7 +146,7 @@ function contarTiempo(){
 function bloqueartargetas(){
     for(let i=0; i<=15; i++){
         let targetaBloqueada = document.getElementById(i);
-        targetaBloqueada.innerHTML = `<img src="./assets/img/${diego[i]}.png">`;
+        targetaBloqueada.innerHTML = `<img src="./assets/img/${mostrar[i]}.png">`;
         targetaBloqueada.disabled = true;
     }
 }
@@ -165,7 +165,7 @@ function destapar(id){
     if(tarjetadestapada == 1){
          //mostrar el priemer numero
       tarjeta1 = document.getElementById(id);
-      primerResultado = diego[id];
+      primerResultado = mostrar[id];
       tarjeta1.innerHTML = `<img src="./assets/img/${primerResultado}.png">`;
       audioClick.play();
 
@@ -176,7 +176,7 @@ function destapar(id){
     else if(tarjetadestapada == 2){
         audioMal.play();
         tarjeta2 = document.getElementById(id);
-        segundoResultado = diego[id];
+        segundoResultado = mostrar[id];
         tarjeta2.innerHTML = `<img src="./assets/img/${segundoResultado}.png">`;
 
         //Deshabilitar segundo boton
