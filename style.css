@@ -5,8 +5,11 @@
 }
 
 body{
-    background: rgb(237,55,105);
-    background: radial-gradient(circle, rgba(237,55,105,1) 0%, rgba(129,2,255,1) 100%);
+    /*background: rgb(237,55,105);
+    *background: radial-gradient(circle, rgba(237,55,105,1) 0%, rgba(129,2,255,1) 100%);
+    */
+    background: rgb(254,190,16);
+    background: linear-gradient(0deg, rgba(254,190,16,1) 37%, rgba(240,230,140,1) 100%);
 }
 
 h1{
@@ -14,7 +17,28 @@ h1{
     margin-top: 20px;
     font-family: lato,Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #000000;
+}
+
+.orange, .small_plant, .desert_plant{
+    width: 200px;
+    position: absolute;
+}
+
+.orange{
+    position: absolute;
+    margin-left: 60%;
+    margin-top: -1rem;
+   
+}
+
+.small_plant{
+   margin-top: -18rem;
+}
+
+.desert_plant{
+    margin-top: -12rem;
+    margin-left: 26%;
 }
 
 main{
@@ -62,7 +86,6 @@ main{
     flex-direction: column;
     justify-content: center;
     border-right: solid 1px #FFFFFF;
- 
     margin-top: 50px;
 }
 
@@ -79,9 +102,6 @@ main{
     font-family: lato, Arial, Helvetica, sans-serif;
 }
 
-img{
-    width: 80%;
-}
 
 #aciertos{
     background-image: url(./assets/img/verificacion.png);
@@ -106,21 +126,18 @@ img{
     background-repeat: no-repeat;
 }
 
-.figura{
-    width: 8%;
-    position: absolute;
-    margin-left: 6%;
-    margin-top: -14.7rem;
-
-}
 
 p{
     margin-top: 50px;
     text-align: center;
-    color: #FFFFFF;
+    color: #000000;
     font-family: lato, Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
+img{
+    width: 80%;
+}
 /* BOTON efecto*/
 
 /* From uiverse.io */
@@ -282,6 +299,27 @@ color: #fff;
 
 
 /**Aplicando los media quiery*/
+@media all and (max-width: 1100px) {
+
+    .small_plant{
+       
+        margin-top: -20rem;
+        margin-left: -2rem;
+    }
+
+    .desert_plant{
+        margin-top: -14rem;
+        margin-left: 22%;
+    }
+}
+
+@media all and (max-width: 1030px) {
+
+    .small_plant, .desert_plant{
+       visibility: hidden;
+    }
+
+}
 
 @media all and (max-width: 850px) {
     
@@ -332,10 +370,6 @@ color: #fff;
         background-position-y: 40px;
     }
     
-    .figura{
-        margin-top: 0rem;
-        visibility: hidden;
-    }
 
     .modal__container{
         padding: 2em 1.5em;
@@ -343,6 +377,30 @@ color: #fff;
 
     .modal__title{
         font-size: 2rem;
+    }
+
+    .orange{
+        visibility: hidden;
+    }
+
+    .small_plant{
+        width: 170px;
+        margin-top: -25rem;
+        visibility: visible;
+    }
+
+    .desert_plant{
+        width: 170px;
+        margin-top: -20rem;
+        margin-left: 15%;
+        visibility: visible;
+    }
+}
+
+@media all and (max-width: 705px) {
+
+    .orange, .small_plant, .desert_plant{
+        visibility: hidden;
     }
 }
 
@@ -389,7 +447,9 @@ color: #fff;
     .button {
         margin-left: 30%;
     }
+
 }
+
 
 @media all and (max-width: 465px) {
     

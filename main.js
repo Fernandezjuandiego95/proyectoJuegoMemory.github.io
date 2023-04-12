@@ -28,15 +28,15 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 30;
-let tiempoRegresivoId;
-let timerInicial = timer;
-//let dato = 0;
+let tiempo = 30;
+let tiempoRegresivo;
+let tiempoInicial = tiempo;
+
 
 
 //Generar cuadros aleatorios
 let partida1 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-   partida1 = partida1.sort(()=>{return  Math.random()-0.5});
+    partida1 = partida1.sort(()=>{return  Math.random()-0.5});
 
 let partida2 = [9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16];
     partida2 = partida2.sort(()=>{return  Math.random()-0.5});
@@ -73,9 +73,7 @@ let partida12 = [89,89,90,90,91,91,92,92,93,93,94,94,95,95,96,96];
 /**----------------------------------------------------------------------------------------------*/   
   
 const azar = Math.floor(Math.random() * 12);
-  
-   let mostrar = [];
-      
+let mostrar = [];
 
     switch (azar) {
         case 0:
@@ -119,15 +117,14 @@ const azar = Math.floor(Math.random() * 12);
         break;
       }
 
-console.log(azar);
-console.log(mostrar);
+
 
 function contarTiempo(){
- tiempoRegresivoId = setInterval(()=>{
-       timer--;
-       mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${timer}`;
-       if(timer <= 0){
-          clearInterval(tiempoRegresivoId);
+ tiempoRegresivo = setInterval(()=>{
+       tiempo--;
+       mostrarTiempo.innerHTML = `Tiempo: &nbsp 0:${tiempo}`;
+       if(tiempo <= 0){
+          clearInterval(tiempoRegresivo);
           bloqueartargetas(mostrar);
           audioPerdiste.play();
 
@@ -220,9 +217,9 @@ function tapartarjetas(){
 
               if(aciertos == 8){
                 audioGanaste.play();
-                clearInterval(tiempoRegresivoId);
+                clearInterval(tiempoRegresivo);
                 mostrarAcieros.innerHTML = `Aciertos: ${aciertos}`;
-                mostrarTiempo.innerHTML = `Demora: &nbsp0:${timerInicial - timer}s`
+                mostrarTiempo.innerHTML = `Demora: &nbsp0:${tiempoInicial - tiempo}s`
                 mostrarMovimientos.innerHTML = `Cambios: ${movimientos}`;
                
                     //mostar ventana modal 
