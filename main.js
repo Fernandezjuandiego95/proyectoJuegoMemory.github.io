@@ -28,7 +28,7 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let tiempo = 5;
+let tiempo = 30;
 let tiempoRegresivo;
 let tiempoInicial = tiempo;
 
